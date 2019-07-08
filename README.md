@@ -31,7 +31,7 @@ Example
 * output/pairwise_alignment
 * output/positions
 
-##Running Protein2GeneTree on an example
+##Running SimSpliceEvol on an example
 ```
 python src/SimSpliceEvol.py
 ```
