@@ -6,11 +6,10 @@ __date__ = "$2016-07-07 09:15:14$"
 `` **module description**:
 This module allows to generate simulted protein based on evolution throught indel, substitution and alternatif splicing
 .. moduleauthor:: CoBIUS.
-September 2017
-Command line: python statistics.py 
+Juillet 2019
+Command line: python SimSpliceEvol.py
 """
 
-Release = 81
 import copy
 import numpy as np
 import random
