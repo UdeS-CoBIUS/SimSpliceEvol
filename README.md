@@ -6,7 +6,7 @@ SimSpliceEvol: Alternative splicing-aware simulation of biological sequence evol
 
 ##Requirements The program requires the following to be available
 
-* python (3 and +)
+* python (3.7)
 * ete3 (https://pypi.python.org/pypi/ete3/)
 * argparse (https://pypi.python.org/pypi/argparse)
 
