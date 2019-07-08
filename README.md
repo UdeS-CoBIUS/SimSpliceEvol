@@ -1,14 +1,14 @@
 # SimSpliceEvol
-SimSpliceEvol: Alternative splicing*aware simulation of biological sequence evolution
+SimSpliceEvol: Alternative splicing-aware simulation of biological sequence evolution
 
 ####Esaie Kuitche, Safa Jammali and Aïda Ouangraoua 
 #####Contact Esaie.Kuitche.Kamela@USherbrooke.ca
 
 ##Requirements The program requires the following to be available
 
-*python (3 and +)
-*ete3 (https://pypi.python.org/pypi/ete3/)
-*argparse (https://pypi.python.org/pypi/argparse)
+* python (3 and +)
+* ete3 (https://pypi.python.org/pypi/ete3/)
+* argparse (https://pypi.python.org/pypi/argparse)
 
 ##Usage
 ```
@@ -23,13 +23,14 @@ Example
 
 ```
 ##Ouptut
-*output/cds
-*output/cds_gene
-*output/cluster
-*output/genes
-*output/multiple_alignment
-*output/pairwise_alignment
-*output/positions
+* output/cds
+* output/cds_gene
+* output/cluster
+* output/genes
+* output/multiple_alignment
+* output/pairwise_alignment
+* output/positions
+
 ##Running Protein2GeneTree on an example
 ```
 python src/SimSpliceEvol.py
