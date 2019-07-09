@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
 
-__author__ = "kuie2201"
-__date__ = "$2016-07-07 09:15:14$"
 """
 `` **module description**:
-This module allows to generate simulted protein based on evolution throught indel, substitution and alternatif splicing
-.. moduleauthor:: CoBIUS.
+This module allows to simulate biological sequence evolution throught sequence and splicing structure evolution events.
+.. moduleauthor:: Esaie Kuitche - CoBIUS Team - Univeristy of Sherbrooke.
 Juillet 2019
-Command line: python SimSpliceEvol.py
+
 """
 
 import copy
@@ -16,6 +14,35 @@ import random
 from random import shuffle
 import itertools
 from ete3 import Tree
+import argparse
+import os
+
+def build_arg_parser():
+	parser = argparse.ArgumentParser(description="SimSpliceEvol program parameters")
+
+	parser.add_argument('-ei_c_l', '--exon_i_change_loss',  default =0.4, help="relative frequence of exon loss") 
+	parser.add_argument('-ei_c_g', '--exon_i_change_gain',  default = 0.5, help="relative frequence of exon gain") 
+	parser.add_argument('-ei_c_d', '--exon_i_change_dup',  default =0.1, help="relative frequence of exon duplication")  
+
+	parser.add_argument('-tc_rs', '--random_selection',  default = 0.5, help="relative frequence of random selection")
+	parser.add_argument('-tc_a5', '--alternative_five_prime', default =  0.1, help="relative frequence of alternative five prime")
+	parser.add_argument('-tc_a3', '--alternative_three_prime', default = 0.1, help="relative frequence of alternative three prime")
+	parser.add_argument('-tc_ek', '--exon_skipping', default = 0.2, help="relative frequence of exon skipping")
+	parser.add_argument('-tc_me', '--mutually_exclusive', default = 0.1, help="relative frequence of mutually exclusive")
+	parser.add_argument('-tc_ir', '--intron_retention', default = 0.05, help="relative frequence of intron retention")
+	parser.add_argument('-tc_tl', '--transcript_loss', default = 0.4, help="relative frequence of transcript loss")
+
+	parser.add_argument('-k_indel', '--k_indel', help="user-defined constant", default = 0.5) 
+	parser.add_argument('-k_ei_c', '--k_ei_c',  help="user-defined constant",  default = 5) 
+	parser.add_argument('-k_t_c', '--k_t_c', default =5, help="user-defined constant") 
+	parser.add_argument('-k_intron', '--k_intron', default = 1.5,  help = "user-defined constant") 
+	parser.add_argument('-k_nb_exons', '--k_nb_exons', default = 1.5, help="user-defined constant")  
+	
+	parser.add_argument('-n', '--number_of_simulation', default= 10, help = "Number of simulation wanted") 
+	parser.add_argument('-i', '--input_tree_file', help = "input guide Tree", default = "Example/input/large.nw")    
+
+	return parser
+
 
 
 def initCodonMatrix(codonMatrixFile):
@@ -202,13 +229,13 @@ def write_init(seq_dict, name):
 	keys = seq_dict.keys()
 	listKeyOrder = []
 	n = len(keys)
-	file = open(name + "_set_at_root.fasta", "w")
+	#file = open(name + "_set_at_root.fasta", "w")
 
 	for i in range(n):
 		if name + "_" + str(i) in keys:
 			listKeyOrder.append(name + "_" + str(i))
-			file.write(">" + name + "_" + str(i) + "\n")
-			file.write(seq_dict[name + "_" + str(i)] + "\n")
+			#file.write(">" + name + "_" + str(i) + "\n")
+			#file.write(seq_dict[name + "_" + str(i)] + "\n")
 	return listKeyOrder
 
 
@@ -964,22 +991,33 @@ def write_datas(leaves, cds_list, exon_intron_of_genes, resulting_gene_exon,intr
 		cluster.write(">" + cluster_id + " :\n")
 		cluster.write(', '.join(elts) + "\n")
 
-		
+def readTreeFromFile(path):
+	fichier = open(path, "r")
+	datas = fichier.readlines()[0]
+	return str(datas)		
 
-def main(gain, dup, lost, iteration):
-	k  = 1.5
-	k1 = 1.5
-	k2 = 10
-	k3 = 5
+
+def main(gain, dup, lost, iteration, arg):
+	k  = arg.k_nb_exons
+	k1 = arg.k_ei_c
+	k2 = arg.k_ei_c
+	k3 = arg.k_t_c
+
 	number_max_exon_transcript = 0
 	number_max_exon_gene = 0
-	prob_deletion = 0.6
-	prob_insertion = 0.6
-	tc6 = 0.05
-	tc5 = 0.1
-	tc3 = 0.1
-	tcsk = 0.2
-	tcme = 1.1
+	prob_deletion = arg.k_indel
+	prob_insertion = arg.k_indel
+	
+	tc6 = arg.random_selection
+	tc5 = arg.alternative_five_prime
+	tc3 = arg.alternative_three_prime
+	tcsk = arg.exon_skipping
+	tcme = arg.mutually_exclusive
+	tcir = arg.intron_retention
+	tctl = arg.transcript_loss
+	k_intron = arg.k_intron
+
+	guideTreeFile = arg.input_tree_file
 
 	one_nt_dist = {}
 	two_nt_dist = {}
@@ -1010,23 +1048,32 @@ def main(gain, dup, lost, iteration):
 	mean_len_indel = 5
 	dict_indel_exons = {}
 	dup_cost = 40
-	src = "../output/"
+	#src = "output/"
 	src2 = "_" + iteration + "_"
-	# Medium moyennement proche
-	# gene_tree		   =	   "((hsap:0.78, ggor:0.86):14.37, ((mmus:15.65, rnor:8.34):28, oryc:22.07):0.95);"
-	#gene_tree = '((oryc:0.10114,(rnor:0.0630707,mmus:0.0607803)1:0.0522143)1:0.00194791,(ggor:0.00867627,hsap:0.00836634)1:0.0878435);'
+	tmp = guideTreeFile.split("/")[-1]
+	dirName = tmp.split(".")[0]
+	src = "Example/output/" + dirName + "/"
+	try:
+		os.mkdir("Example/output/" + dirName)		
+		os.mkdir("Example/output/" + dirName + "/cds")
+		os.mkdir("Example/output/" + dirName + "/genes")
+		os.mkdir("Example/output/" + dirName + "/cds_gene")
+		os.mkdir("Example/output/" + dirName + "/cluster")
+		os.mkdir("Example/output/" + dirName + "/positions")
+		os.mkdir("Example/output/" + dirName + "/pairwise_alignment")
+		os.mkdir("Example/output/" + dirName + "/multiple_alignment")		
 
-	#Small très proche
-	gene_tree   = '((((ppan:0.00307243,ptro:0.00246757)1:0.00430055,hsap:0.00660945)1:0.00175688,ggor:0.00867627)1:0.00836254,pabe:0.0172631);'
+	except FileExistsError:
+		pass
+		#print("Directory " , dirName ,  " already exists")
 
-	#Large moins proche
-	#gene_tree		   =  '(ggal:0.129452,(mdom:0.116455,((mmus:0.114942,hsap:0.0962098)1:0.0001,btaus:0.11365)1:0.0143738)1:0.0100642);'
+	guideTree = readTreeFromFile(guideTreeFile)
 
-	tree = Tree(gene_tree)
+	tree = Tree(guideTree)
 
 	nb_leaf = len(tree.get_leaf_names())
 
-	codonMatrixFile = "../Datas/transitionCodonMatrix.txt"
+	codonMatrixFile = "Data/transitionCodonMatrix.txt"
 
 	codonslist = ['TTT', 'TTC', 'TTA', 'TTG', 'TCT', 'TCC', 'TCA', 'TCG', 'TAT', 'TAC', 'TGT', 'TGC', 'TGG', 'CTT',
 				  'CTC', 'CTA', 'CTG', 'CCT', 'CCC', 'CCA', 'CCG', 'CAT', 'CAC', 'CAA', 'CAG', 'CGT', 'CGC', 'CGA',
@@ -1108,15 +1155,20 @@ def main(gain, dup, lost, iteration):
 
 
 if __name__ == "__main__":
-	gain = 0.5
-	dup = 0.1
-	lost = 0.4
+	parser = build_arg_parser()
+	arg = parser.parse_args()
+
+	gain = arg.exon_i_change_gain
+	dup = arg.exon_i_change_dup
+	lost = arg.exon_i_change_loss
 
 	cost = [gain, dup, lost]
 	cmpt = 1
 	
+	n = arg.number_of_simulation
+
 	for i in range(10):
-		main(cost[0], cost[1], cost[2], "iteration_" + str(cmpt)) 
+		main(cost[0], cost[1], cost[2], "iteration_" + str(cmpt), arg) 
 		cmpt += 1
 
 
