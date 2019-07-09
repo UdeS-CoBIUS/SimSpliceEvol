@@ -271,13 +271,13 @@ def make_structure_evol(tree, exon_loss_dup_gain, prob_loss, prob_dup, prob_gain
 					node.name[2][e] = exons_dict[e]
 
 
-			nb_loss = 0# int(nb_exon * prob_loss * k2 * cs) 
+			nb_loss = int(nb_exon * prob_loss * k2 * cs) 
 			exon_to_delete = random.choices(exon_may_be_lost, k=nb_loss)
 			for e in exon_to_delete:
 				node.name[0][e][0] = 1
 			
 
-			nb_dup = 0#int((nb_exon-nb_loss) * prob_loss * k2 * cs) 
+			nb_dup = int((nb_exon-nb_loss) * prob_loss * k2 * cs) 
 			exon_may_be_dup = [e for e in exon_may_be_lost if e not in exon_to_delete]
 			exon_to_duplicate = random.choices(exon_may_be_dup, k=nb_dup)
 			for e in exon_to_duplicate:
@@ -295,7 +295,7 @@ def make_structure_evol(tree, exon_loss_dup_gain, prob_loss, prob_dup, prob_gain
 
 
 
-			nb_gain = 0#int((nb_exon-nb_loss+nb_dup) * prob_loss * k2 * cs) 
+			nb_gain = int((nb_exon-nb_loss+nb_dup) * prob_loss * k2 * cs) 
 			for cmpt in range(nb_gain):
 				exons_dict["exon_new_" + str(i)] = exon_to_gain.pop()
 				if node.name[2] == "":
@@ -733,7 +733,7 @@ def make_protein_evol(tree, exon_intron_of_genes, resulting_gene_exon, tc5, tc3,
 			l += nb_5
 			"""
 
-			nb_3 = 0#int(round(l * tc3 * k3 * cs ))
+			nb_3 = int(round(l * tc3 * k3 * cs ))
 			
 			for i in range(nb_3):
 				cds_seleted = choice_distint(list(cds_list_gene.keys()), nb_3)
