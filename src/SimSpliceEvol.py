@@ -19,27 +19,31 @@ import os
 
 def build_arg_parser():
 	parser = argparse.ArgumentParser(description="SimSpliceEvol program parameters")
+	parser.add_argument('-i', '--input_tree_file', help = "input guide tree (default = Example/input/large.nw)", default = "Example/input/large.nw")    
+	parser.add_argument('-n', '--number_of_simulation', default= 10, help = "number of simulations") 	
 
-	parser.add_argument('-ei_c_l', '--exon_i_change_loss',  default =0.4, help="relative frequence of exon loss") 
-	parser.add_argument('-ei_c_g', '--exon_i_change_gain',  default = 0.5, help="relative frequence of exon gain") 
-	parser.add_argument('-ei_c_d', '--exon_i_change_dup',  default =0.1, help="relative frequence of exon duplication")  
+	parser.add_argument('-k_indel', '--k_indel', help="multiplicative constant for codon indel rate (default =0.5)", default = 0.5) 
+	parser.add_argument('-k_eic', '--k_eic',  help="multiplicative constant for exon-intron change (eic) rate  (default =5)",  default = 5) 
+	parser.add_argument('-k_tc', '--k_tc', default =5, help="multiplicative constant for transcript change (tc) rate (default =5)") 
+	parser.add_argument('-k_intron', '--k_intron', default = 1.5,  help = "multiplicative constant for substitution rate in intron (default =1.5)") 
+	parser.add_argument('-k_nb_exons', '--k_nb_exons', default = 1.5, help="multiplicative constant for number of exons in gene (default =1.5)")  
 
-	parser.add_argument('-tc_rs', '--random_selection',  default = 0.5, help="relative frequence of random selection")
-	parser.add_argument('-tc_a5', '--alternative_five_prime', default =  0.1, help="relative frequence of alternative five prime")
-	parser.add_argument('-tc_a3', '--alternative_three_prime', default = 0.1, help="relative frequence of alternative three prime")
-	parser.add_argument('-tc_ek', '--exon_skipping', default = 0.2, help="relative frequence of exon skipping")
-	parser.add_argument('-tc_me', '--mutually_exclusive', default = 0.1, help="relative frequence of mutually exclusive")
-	parser.add_argument('-tc_ir', '--intron_retention', default = 0.05, help="relative frequence of intron retention")
-	parser.add_argument('-tc_tl', '--transcript_loss', default = 0.4, help="relative frequence of transcript loss")
 
-	parser.add_argument('-k_indel', '--k_indel', help="user-defined constant", default = 0.5) 
-	parser.add_argument('-k_ei_c', '--k_ei_c',  help="user-defined constant",  default = 5) 
-	parser.add_argument('-k_t_c', '--k_t_c', default =5, help="user-defined constant") 
-	parser.add_argument('-k_intron', '--k_intron', default = 1.5,  help = "user-defined constant") 
-	parser.add_argument('-k_nb_exons', '--k_nb_exons', default = 1.5, help="user-defined constant")  
+	parser.add_argument('-eic_l', '--exon_i_change_loss',  default =0.4, help="relative frequence of exon loss in eic (default =0.4)") 
+	parser.add_argument('-eic_g', '--exon_i_change_gain',  default = 0.5, help="relative frequence of exon gain in eic (default =0.5)") 
+	parser.add_argument('-eic_d', '--exon_i_change_dup',  default =0.1, help="relative frequence of exon duplication in eic (default =0.1)")  
+
+	parser.add_argument('-tc_rs', '--random_selection',  default = 0.5, help="relative frequence of random selection in tc (default =0.5)")
+	parser.add_argument('-tc_a5', '--alternative_five_prime', default =  0.1, help="relative frequence of alternative five prime in tc (default =0.1)")
+	parser.add_argument('-tc_a3', '--alternative_three_prime', default = 0.1, help="relative frequence of alternative three prime in tc (default =0.1)")
+	parser.add_argument('-tc_ek', '--exon_skipping', default = 0.2, help="relative frequence of exon skipping in tc (default =0.1)")
+	parser.add_argument('-tc_me', '--mutually_exclusive', default = 0.1, help="relative frequence of mutually exclusive in tc (default =0.1)")
+	parser.add_argument('-tc_ir', '--intron_retention', default = 0.05, help="relative frequence of intron retention in tc (default =0.05)")
+	parser.add_argument('-tc_tl', '--transcript_loss', default = 0.4, help="relative frequence of transcript loss in tc (default =0.4)")
+
 	
-	parser.add_argument('-n', '--number_of_simulation', default= 10, help = "Number of simulation wanted") 
-	parser.add_argument('-i', '--input_tree_file', help = "input guide Tree", default = "Example/input/large.nw")    
+	
+	
 
 	return parser
 
