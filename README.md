@@ -1,16 +1,17 @@
 # SimSpliceEvol
 SimSpliceEvol: Alternative splicing-aware simulation of biological sequence evolution
 
-####Esaie Kuitche, Safa Jammali and Aïda Ouangraoua 
-#####Contact Esaie.Kuitche.Kamela@USherbrooke.ca
+## Esaie Kuitche, Safa Jammali and Aïda Ouangraoua 
 
-##Requirements The program requires the following to be available
+## Contact Esaie.Kuitche.Kamela@USherbrooke.ca
+
+## Requirements The program requires the following to be available
 
 * python (3.7)
 * ete3 (https://pypi.python.org/pypi/ete3/)
 * argparse (https://pypi.python.org/pypi/argparse)
 
-##Usage
+## Usage
 ```
 usage: SimSpliceEvol.py [-h] [-i INPUT_TREE_FILE] [-n NUMBER_OF_SIMULATION]
                         [-k_indel K_INDEL] [-k_eic K_EIC] [-k_tc K_TC]
@@ -40,15 +41,13 @@ optional arguments:
   -k_intron K_INTRON, --k_intron K_INTRON
                         multiplicative constant for substitution rate in intron (default =1.5)
   -k_nb_exons K_NB_EXONS, --k_nb_exons K_NB_EXONS
-                        multiplicative constant for number of exons in gene
-                        (default =1.5)
+                        multiplicative constant for number of exons in gene (default =1.5)
   -eic_l EXON_I_CHANGE_LOSS, --exon_i_change_loss EXON_I_CHANGE_LOSS
-                        relative frequence of exon loss in eic (default =0.4)
+                        relative frequence of exon loss in eic (default = 0.4)
   -eic_g EXON_I_CHANGE_GAIN, --exon_i_change_gain EXON_I_CHANGE_GAIN
-                        relative frequence of exon gain in eic (default =0.5)
+                        relative frequence of exon gain in eic (default = 0.5)
   -eic_d EXON_I_CHANGE_DUP, --exon_i_change_dup EXON_I_CHANGE_DUP
-                        relative frequence of exon duplication in eic (default
-                        =0.1)
+                        relative frequence of exon duplication in eic (default = 0.1)
   -tc_rs RANDOM_SELECTION, --random_selection RANDOM_SELECTION
                         relative frequence of random selection in tc (default
                         =0.5)
@@ -70,19 +69,17 @@ optional arguments:
   -tc_tl TRANSCRIPT_LOSS, --transcript_loss TRANSCRIPT_LOSS
                         relative frequence of transcript loss in tc (default
                         =0.4)
-
-
 ```
 
-##Input files
+## Input files
 
-###example of input guide tree (examples in Examples/input/<filename>.nw)
+## example of input guide tree (examples in Examples/input/<filename>.nw)
 
 ```
 (ggal:0.129452,(mdom:0.116455,((mmus:0.114942,hsap:0.0962098)1:0.0001,btaus:0.11365)1:0.0143738)1:0.0100642);
 
 ```
-##Ouptut directory and files
+## Ouptut directory and files
 * output/<filename>/cds: fasta file of CDS
 * output/<filename>/cds_gene: mapping file for CDS and genes
 * output/<filename>/cluster: splicing orthology groups of CDS
@@ -91,7 +88,7 @@ optional arguments:
 * output/<filename>/pairwise_alignment: pairwise splice alignment of all genes against all CDS
 * output/<filename>/positions: exon composition of each CDS with location in CDS and gene
 
-##Running SimSpliceEvol on an example
+## Running SimSpliceEvol on an example
 ```
 python3.7 src/SimSpliceEvol.py
 ```

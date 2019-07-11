@@ -2,6 +2,7 @@
 SimSpliceEvol: Alternative splicing-aware simulation of biological sequence evolution
 
 ####Esaie Kuitche, Safa Jammali and Aïda Ouangraoua 
+
 #####Contact Esaie.Kuitche.Kamela@USherbrooke.ca
 
 ##Requirements The program requires the following to be available
@@ -32,27 +33,21 @@ optional arguments:
   -n NUMBER_OF_SIMULATION, --number_of_simulation NUMBER_OF_SIMULATION
                         number of simulations
   -k_indel K_INDEL, --k_indel K_INDEL
-                        multiplicative constant for codon indel rate (default
-                        =0.5)
+                        multiplicative constant for codon indel rate (default=0.5)
   -k_eic K_EIC, --k_eic K_EIC
-                        multiplicative constant for exon-intron change (eic)
-                        rate (default =5)
+                        multiplicative constant for exon-intron change (eic) rate (default =5)
   -k_tc K_TC, --k_tc K_TC
-                        multiplicative constant for transcript change (tc)
-                        rate (default =5)
+                        multiplicative constant for transcript change (tc) rate (default =5)
   -k_intron K_INTRON, --k_intron K_INTRON
-                        multiplicative constant for substitution rate in
-                        intron (default =1.5)
+                        multiplicative constant for substitution rate in intron (default =1.5)
   -k_nb_exons K_NB_EXONS, --k_nb_exons K_NB_EXONS
-                        multiplicative constant for number of exons in gene
-                        (default =1.5)
+                        multiplicative constant for number of exons in gene (default =1.5)
   -eic_l EXON_I_CHANGE_LOSS, --exon_i_change_loss EXON_I_CHANGE_LOSS
-                        relative frequence of exon loss in eic (default =0.4)
+                        relative frequence of exon loss in eic (default = 0.4)
   -eic_g EXON_I_CHANGE_GAIN, --exon_i_change_gain EXON_I_CHANGE_GAIN
-                        relative frequence of exon gain in eic (default =0.5)
+                        relative frequence of exon gain in eic (default = 0.5)
   -eic_d EXON_I_CHANGE_DUP, --exon_i_change_dup EXON_I_CHANGE_DUP
-                        relative frequence of exon duplication in eic (default
-                        =0.1)
+                        relative frequence of exon duplication in eic (default = 0.1)
   -tc_rs RANDOM_SELECTION, --random_selection RANDOM_SELECTION
                         relative frequence of random selection in tc (default
                         =0.5)
