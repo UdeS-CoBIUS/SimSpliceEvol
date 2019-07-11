@@ -1,17 +1,17 @@
 # SimSpliceEvol
 SimSpliceEvol: Alternative splicing-aware simulation of biological sequence evolution
 
-## Esaie Kuitche, Safa Jammali and Aïda Ouangraoua 
+### Esaie Kuitche, Safa Jammali and Aïda Ouangraoua 
 
-## Contact Esaie.Kuitche.Kamela@USherbrooke.ca
+### Contact Esaie.Kuitche.Kamela@USherbrooke.ca
 
-## Requirements The program requires the following to be available
+### Requirements The program requires the following to be available
 
 * python (3.7)
 * ete3 (https://pypi.python.org/pypi/ete3/)
 * argparse (https://pypi.python.org/pypi/argparse)
 
-## Usage
+### Usage
 ```
 usage: SimSpliceEvol.py [-h] [-i INPUT_TREE_FILE] [-n NUMBER_OF_SIMULATION]
                         [-k_indel K_INDEL] [-k_eic K_EIC] [-k_tc K_TC]
@@ -73,7 +73,7 @@ optional arguments:
 
 ## Input files
 
-## example of input guide tree (examples in Examples/input/<filename>.nw)
+### example of input guide tree (examples in Examples/input/<filename>.nw)
 
 ```
 (ggal:0.129452,(mdom:0.116455,((mmus:0.114942,hsap:0.0962098)1:0.0001,btaus:0.11365)1:0.0143738)1:0.0100642);
