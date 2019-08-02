@@ -23,8 +23,8 @@ def build_arg_parser():
 	parser.add_argument('-n', '--number_of_simulation', default= 10, help = "number of simulations") 	
 
 	parser.add_argument('-k_indel', '--k_indel', help="multiplicative constant for codon indel rate (default =0.5)", default = 0.5) 
-	parser.add_argument('-k_eic', '--k_eic',  help="multiplicative constant for exon-intron change (eic) rate  (default =5)",  default = 5) 
-	parser.add_argument('-k_tc', '--k_tc', default =5, help="multiplicative constant for transcript change (tc) rate (default =5)") 
+	parser.add_argument('-k_ei_c', '--k_ei_c',  help="multiplicative constant for exon-intron change (eic) rate  (default =5)",  default = 20) 
+	parser.add_argument('-k_t_c', '--k_t_c', default =5, help="multiplicative constant for transcript change (tc) rate (default =5)") 
 	parser.add_argument('-k_intron', '--k_intron', default = 1.5,  help = "multiplicative constant for substitution rate in intron (default =1.5)") 
 	parser.add_argument('-k_nb_exons', '--k_nb_exons', default = 1.5, help="multiplicative constant for number of exons in gene (default =1.5)")  
 
@@ -358,12 +358,13 @@ def make_substition_evol(tree, exons_dict, codon_distribution, listKeyOrder, k1)
 	for node in tree.traverse("preorder"):
 		if node.is_root():
 			node.name[2] = copy.deepcopy(exons_dict)
-		else:		
+		else:					
 			parent = node.get_ancestors()[0]
 			parent_exon_id = parent.name[1]
 
 			parentSeq = "".join([exons_dict[x] for x in parent_exon_id])
 			
+			#l = int(len(parentSeq)/3.0)
 			l = int(len(parentSeq)/3.0)
 
 			nodeSeq = ""
@@ -371,28 +372,31 @@ def make_substition_evol(tree, exons_dict, codon_distribution, listKeyOrder, k1)
 			cs = node.dist
 
 			nb_subt = int(l * cs * k1)
-			
-			subt_positions = choice_distint(range(l), nb_subt)
-			
+			all_data = range(l)
+			subt_positions = choice_distint(all_data, nb_subt)
+			subt_positions = [3*x for x in subt_positions]
+			#print(all_data)
+			#print ("===========", nb_subt, len(parentSeq), sorted(subt_positions))
 			start = 0
 			end = 0
 			for exon_id in parent_exon_id:
+				nb = 0
 				start = end 
 
 				end = start + len(parent.name[2][exon_id])
 				exon_tmp = parent.name[2][exon_id]
-				
+				#print("exons_len", len(exon_tmp))
 				for position in sorted(subt_positions):
 
-					if position >= start and position+3 < end:						
+					if position >= start and position+3 <= end:						
 				
-						position = position -start
+						position = position - start
 
-						if exon_tmp[position:position+3] == "ATG":
+						if False : #exon_tmp[position:position+3] == "ATG":
 							codon_subt = "ATG"
 						else:	
 							codon_subt = random.choice(codon_distribution[exon_tmp[position:position+3]])
-
+							nb +=1
 						exon_tmp = exon_tmp[0:position] + codon_subt + exon_tmp[position+3:]
 				
 				if node.name[3] in gene_exon_state.keys():
@@ -403,7 +407,7 @@ def make_substition_evol(tree, exons_dict, codon_distribution, listKeyOrder, k1)
 
 				
 				node.name[2][exon_id] = exon_tmp
-
+				#print("-------------------------",nb)
 
 	
 def make_indel_evol(tree, exons_dict, codon_distribution, listKeyOrder, mean_nb_indel, mean_len_indel, sd_len_indel, exon_to_gain,
@@ -764,7 +768,7 @@ def make_protein_evol(tree, exon_intron_of_genes, resulting_gene_exon, tc5, tc3,
 			l += nb_5
 			"""
 
-			nb_3 = int(round(l * tc3 * k3 * cs ))
+			nb_3 = 0#int(round(l * tc3 * k3 * cs ))
 			
 			for i in range(nb_3):
 				cds_seleted = choice_distint(list(cds_list_gene.keys()), nb_3)
@@ -1069,7 +1073,7 @@ def main(gain, dup, lost, iteration, arg):
 
 	except FileExistsError:
 		pass
-		#print("Directory " , dirName ,  " already exists")
+		print("Directory " , dirName ,  " already exists")
 
 	guideTree = readTreeFromFile(guideTreeFile)
 
