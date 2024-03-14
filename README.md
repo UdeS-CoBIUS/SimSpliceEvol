@@ -37,7 +37,7 @@
 
 <!-- Operating System -->
 <h3 name="os"> :man_technologist: Operating System</h3>
-The program was both developed and tested on a system operating Ubuntu version 18.04.6 LTS.
+The program was both developed and tested on a system operating Ubuntu version 22.04.6 LTS.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
