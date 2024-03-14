@@ -1,5 +1,0 @@
-cds_0_ggal ggal
-cds_0_mdom mdom
-cds_0_mmus mmus
-cds_0_hsap hsap
-cds_0_btaus btaus
