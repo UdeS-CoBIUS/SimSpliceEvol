@@ -1,0 +1,43 @@
+#################  STATITICS LEARN FROM 4597 GENES FAMILLY and 56025 GENES#################
+
+#distribution of CDS lenght
+min lenght : 9
+max lenght : 59511
+avg lenght : 1507.2
+std lenght : 1416.16
+
+#distribution of GENE lenght
+min lenght : 75
+max lenght : 3114868
+avg lenght : 27335.98
+std lenght : 72919.16
+
+#distribution of EXON lenght
+min lenght : 1
+max lenght : 27690
+avg lenght : 170.36
+std lenght : 258.86
+
+#distribution of INTRON lenght
+min lenght : 5
+max lenght : 3022163
+avg lenght : 3760.3
+std lenght : 20126.39
+
+#distribution of the number of exon per CDS
+min lenght : 1
+max lenght : 162
+avg lenght : 9.13
+std lenght : 8.54
+
+#distribution of the number of exon per GENE
+min lenght : 1
+max lenght : 162
+avg lenght : 8.12
+std lenght : 8.08
+
+#distribution of the number of CDS per GENE
+min lenght : 1
+max lenght : 61
+avg lenght : 1.45
+std lenght : 1.08

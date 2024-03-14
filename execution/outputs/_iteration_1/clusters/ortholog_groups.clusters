@@ -1,0 +1,72 @@
+>cluster_1:(see phylogenies\phylo_11)
+transcript_5-10
+transcript_4-10
+
+>cluster_2:(see phylogenies\phylo_12)
+transcript_5-11
+transcript_4-11
+
+>cluster_3:(see phylogenies\phylo_13)
+transcript_4-17
+transcript_4-12
+transcript_5-17
+transcript_5-12
+
+>cluster_4:(see phylogenies\phylo_9)
+transcript_4-8
+transcript_6-8
+transcript_5-8
+
+>cluster_5:(see phylogenies\phylo_10)
+transcript_4-9
+transcript_5-9
+transcript_6-9
+
+>cluster_6:(see phylogenies\phylo_5)
+transcript_5-4
+transcript_7-4
+transcript_6-4
+transcript_4-4
+
+>cluster_7:(see phylogenies\phylo_2)
+transcript_6-1
+transcript_5-1
+transcript_4-1
+transcript_7-1
+transcript_8-1
+
+>cluster_8:(see phylogenies\phylo_3)
+transcript_8-2
+transcript_5-16
+transcript_4-16
+transcript_4-2
+transcript_6-2
+transcript_5-2
+transcript_7-2
+
+>cluster_9:(see phylogenies\phylo_10)
+transcript_5-13
+transcript_4-13
+
+>cluster_10:(see phylogenies\phylo_9)
+transcript_5-14
+transcript_4-14
+
+>cluster_11:(see phylogenies\phylo_9)
+transcript_5-15
+transcript_4-15
+
+>cluster_12:(see phylogenies\phylo_6)
+transcript_6-5
+transcript_7-5
+
+>cluster_13:(see phylogenies\phylo_1)
+transcript_6-0
+transcript_8-0
+transcript_7-0
+
+>cluster_14:(see phylogenies\phylo_4)
+transcript_6-3
+transcript_7-3
+transcript_8-3
+
