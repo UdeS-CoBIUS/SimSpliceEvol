@@ -271,11 +271,63 @@ SimSpliceEvol creates nine(9) folders.
 </p>
 
 >> list output directories
+<pre><code>
+.
+├── cdna
+│   └── cdna.fasta
+├── clusters
+│   └── ortholog_groups.clusters
+├── exons_positions
+│   └── exons_positions.txt
+├── genes
+│   └── genes.fasta
+├── multiple_alignments
+│   └── msa_transcripts.alg
+├── pairwise_alignments
+│   └── pairwise_alignments.fasta
+├── phylogenies
+│   ├── phylo_1_msa_.png
+│   ├── phylo_1_msa_.svg
+│   ├── phylo_1.nwk
+│   ├── phylo_1_w_msa_.png
+│   ├── phylo_1_w_msa_.svg
+│   ├── phylo_2_msa_.png
+│   ├── phylo_2_msa_.svg
+│   ├── phylo_2.nwk
+│   ├── phylo_2_w_msa_.png
+│   ├── phylo_2_w_msa_.svg
+│   ├── phylo_3_msa_.png
+│   ├── phylo_3_msa_.svg
+│   ├── phylo_3.nwk
+│   ├── phylo_3_w_msa_.png
+│   ├── phylo_3_w_msa_.svg
+│   ├── phylo_4_msa_.png
+│   ├── phylo_4_msa_.svg
+│   ├── phylo_4.nwk
+│   ├── phylo_4_w_msa_.png
+│   ├── phylo_4_w_msa_.svg
+│   ├── phylo_5_msa_.png
+│   ├── phylo_5_msa_.svg
+│   ├── phylo_5.nwk
+│   ├── phylo_5_w_msa_.png
+│   ├── phylo_5_w_msa_.svg
+│   ├── phylo_6_msa_.png
+│   ├── phylo_6_msa_.svg
+│   ├── phylo_6.nwk
+│   ├── phylo_6_w_msa_.png
+│   └── phylo_6_w_msa_.svg
+├── transcripts
+│   └── transcripts.fasta
+└── transcripts_to_gene
+    └── mappings.txt
 
->> MSA <-> phylogenies
+</pre></code>
+
+>> MSA <-> phylogenies (``phylo[n¤]_msa.png``)
 <p align='center' style="background-color:gray;padding:20px;">
     <img src="./public/gui_image4.png" alt="Image 2" >
 </p>
+
 
 __MORE with SimSpliceEvol__
 
