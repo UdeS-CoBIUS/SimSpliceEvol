@@ -254,21 +254,28 @@ SimSpliceEvol creates nine(9) folders.
 - Or double-click on the icon to open the application. Perhaps you should first right-click and set the software to execute as an application (right-click > Properties > Permissions > Authorize the execution of the file as an application).
 
 > Interface
+<p align='center' style="background-color:gray;padding:20px;">
+    <img src="./public/gui_image.png" alt="Image 2" >
+</p>
 
+> execution -> windows
 
+>> Outputs
+<p align='center' style="background-color:gray;padding:20px;">
+    <img src="./public/gui_image1.png" alt="Image 2" >
+</p>
 
+>> phylogenies carousel
+<p align='center' style="background-color:gray;padding:20px;">
+    <img src="./public/gui_image2.png" alt="Image 2" >
+</p>
 
+>> list output directories
 
-
-
-
-
-
-
-
-
-
-
+>> MSA <-> phylogenies
+<p align='center' style="background-color:gray;padding:20px;">
+    <img src="./public/gui_image4.png" alt="Image 2" >
+</p>
 
 __MORE with SimSpliceEvol__
 
