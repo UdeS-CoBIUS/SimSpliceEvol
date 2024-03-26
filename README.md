@@ -32,6 +32,7 @@
 7. [➤ Descriptions of Project Files](#project-files-description)
     1. [➤ Description of Inputs](#project-files-description-inputs)
     2. [➤ Description of Outputs](#project-files-description-outputs)
+8. [➤ Starting with SimSpliceEvolGUI](#gui-description)
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
@@ -238,6 +239,36 @@ SimSpliceEvol creates nine(9) folders.
 # (gray leaves'nodes)
 
 ```
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+<h2 id="gui-description"> :computer: Starting with SimSpliceEvolGUI </h2>
+
+<!-- Main Command -->
+> Main Command 
+
+- Open a terminal in Ubuntu and enter the following command. Users will be able to see the error logs in the terminal if they occur.
+
+<pre><code> ./simspliceevol2GUI </code></pre>
+
+- Or double-click on the icon to open the application. Perhaps you should first right-click and set the software to execute as an application (right-click > Properties > Permissions > Authorize the execution of the file as an application).
+
+> Interface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 __MORE with SimSpliceEvol__
 
