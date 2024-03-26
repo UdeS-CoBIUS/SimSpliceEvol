@@ -262,12 +262,12 @@ SimSpliceEvol creates nine(9) folders.
 
 >> Outputs
 <p align='center' style="background-color:gray;padding:20px;">
-    <img src="./public/gui_image1.png" alt="Image 2" >
+    <img src="./public/gui_image2.png" alt="Image 2" >
 </p>
 
 >> phylogenies carousel
 <p align='center' style="background-color:gray;padding:20px;">
-    <img src="./public/gui_image2.png" alt="Image 2" >
+    <img src="./public/gui_image1.png" alt="Image 2" >
 </p>
 
 >> list output directories
