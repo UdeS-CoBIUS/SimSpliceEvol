@@ -328,6 +328,7 @@ SimSpliceEvol creates nine(9) folders.
     <img src="./public/gui_image4.png" alt="Image 2" >
 </p>
 
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 __MORE with SimSpliceEvol__
 
