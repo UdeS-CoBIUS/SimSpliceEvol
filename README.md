@@ -3,7 +3,7 @@
 <!-- OVERVIEW -->
 <h3 id="overview"> Overview </h3>
 
-`HHHHHHHHHHHHHSimSpliceEvol is a tool designed to simulate the evolution of sets of alternative transcripts along the branches of an input gene tree. In addition to traditional sequence evolution events, the simulation also incorporates events related to the evolution of gene exon-intron structures and alternative splicing. These events modify the sets of transcripts produced from genes. Data generated using SimSpliceEvol is valuable for testing spliced RNA sequence analysis methods, including spliced alignment of cDNA and genomic sequences, multiple cDNA alignment, identification of orthologous exons, splicing orthology inference, and transcript phylogeny inference. These tests are essential for methods that require knowledge of the real evolutionary relationships between the sequences.`
+`SimSpliceEvol is a tool designed to simulate the evolution of sets of alternative transcripts along the branches of an input gene tree. In addition to traditional sequence evolution events, the simulation also incorporates events related to the evolution of gene exon-intron structures and alternative splicing. These events modify the sets of transcripts produced from genes. Data generated using SimSpliceEvol is valuable for testing spliced RNA sequence analysis methods, including spliced alignment of cDNA and genomic sequences, multiple cDNA alignment, identification of orthologous exons, splicing orthology inference, and transcript phylogeny inference. These tests are essential for methods that require knowledge of the real evolutionary relationships between the sequences.`
 
 <p align="center">
     <img src="./public/logo.png" alt="Image 2" style="width:600px; border: 5px solid green; background-color: red">
