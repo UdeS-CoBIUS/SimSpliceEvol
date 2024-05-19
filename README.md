@@ -1,9 +1,13 @@
 # :computer: SimSpliceEvol2: alternative splicing-aware simulation of biological sequence evolution and transcript phylogenies.
 
+<h5> Full documentation `Getting_started_with_SimSpliceEvol2.pdf` </h5>
+
+---
 <!-- OVERVIEW -->
 <h3 id="overview"> Overview </h3>
 
-`SimSpliceEvol is a tool designed to simulate the evolution of sets of alternative transcripts along the branches of an input gene tree. In addition to traditional sequence evolution events, the simulation also incorporates events related to the evolution of gene exon-intron structures and alternative splicing. These events modify the sets of transcripts produced from genes. Data generated using SimSpliceEvol is valuable for testing spliced RNA sequence analysis methods, including spliced alignment of cDNA and genomic sequences, multiple cDNA alignment, identification of orthologous exons, splicing orthology inference, and transcript phylogeny inference. These tests are essential for methods that require knowledge of the real evolutionary relationships between the sequences.`
+
+SimSpliceEvol is a tool designed to simulate the evolution of sets of alternative transcripts along the branches of an input gene tree. In addition to traditional sequence evolution events, the simulation also incorporates events related to the evolution of gene exon-intron structures and alternative splicing. These events modify the sets of transcripts produced from genes. Data generated using SimSpliceEvol is valuable for testing spliced RNA sequence analysis methods, including spliced alignment of cDNA and genomic sequences, multiple cDNA alignment, identification of orthologous exons, splicing orthology inference, and transcript phylogeny inference. These tests are essential for methods that require knowledge of the real evolutionary relationships between the sequences.
 
 <p align="center">
     <img src="./public/logo.png" alt="Image 2" style="width:600px; border: 5px solid green; background-color: red">
@@ -47,9 +51,7 @@ The program was both developed and tested on a system operating Ubuntu version 2
 
 *   __`python3 (at leat python 3.6)`__
 *   __`ETE toolkit (ete3)`__
-*   __`networkx`__
 *   __`pyQt5`__
-*   __`timeout_decorator`__
 *   __`Pandas`__
 *   __`Numpy`__
 
@@ -63,7 +65,7 @@ The program was both developed and tested on a system operating Ubuntu version 2
 
 > Unzip the file ``application.zip`` and access the GUI ``simspliceevolv2GUI`` in the application folder..
 
->>> ⚠️ It may take some time (not more than 15 seconds) to launch the program due to deploying the environment and the necessary modules to compute the program successfully. If any errors occur, feel free to contact us.
+> ⚠️ It may take some time (not more than 15 seconds) to launch the program due to deploying the environment and the necessary modules to compute the program successfully. If any errors occur, feel free to contact us.
 
 > The webserver and the GUI are available at [``https://simspliceevol.cobius.usherbrooke.ca/``](https://simspliceevol.cobius.usherbrooke.ca/)
 
