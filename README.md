@@ -1,6 +1,6 @@
 # :computer: SimSpliceEvol2: alternative splicing-aware simulation of biological sequence evolution and transcript phylogenies.
 
-<h5> Full documentation `Getting_started_with_SimSpliceEvol2.pdf` </h5>
+<h3> Full PDF documentation : <a href='https://github.com/UdeS-CoBIUS/SimSpliceEvol/blob/master/Getting_started_with_SimSpliceEvol2.pdf'> Getting_started_with_SimSpliceEvol2 </a> </h3>
 
 ---
 <!-- OVERVIEW -->
@@ -61,18 +61,18 @@ The program was both developed and tested on a system operating Ubuntu version 2
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <!-- Package -->
-<h3 id="package"> :package: Graphical User Interface (GUI) and Webserver</h3>
+<h3 id="package"> :package: Standalone software/Graphical User Interface (GUI) and Webserver</h3>
 
-> Unzip the file ``application.zip`` and access the GUI ``simspliceevolv2GUI`` in the application folder..
+> Unzip the file ``application.zip`` and access the GUI ``simspliceevolv2`` in the application folder..
 
 > ⚠️ It may take some time (not more than 15 seconds) to launch the program due to deploying the environment and the necessary modules to compute the program successfully. If any errors occur, feel free to contact us.
 
-> The webserver and the GUI are available at [``https://simspliceevol.cobius.usherbrooke.ca/``](https://simspliceevol.cobius.usherbrooke.ca/)
+> The webserver and the standalone software are available at [``https://simspliceevol.cobius.usherbrooke.ca/``](https://simspliceevol.cobius.usherbrooke.ca/). The full documentation of the software can be found in this repository.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <!-- Getting started -->
-<h2 id="getting-started"> :rocket: Getting Started</h2>
+<h2 id="getting-started"> :rocket: Getting Started with the python script</h2>
 
 <!-- Main Command -->
 <h3 id="main"> :computer: Main Command</h3>
@@ -84,6 +84,7 @@ The program was both developed and tested on a system operating Ubuntu version 2
                           [-eic_ed EIC_ED] [-eic_eg EIC_EG] [-c_i C_I]
                           [-c_d C_D] [-k_nb_exons K_NB_EXONS] [-k_eic K_EIC]
                           [-k_indel K_INDEL] [-k_tc K_TC]
+                          [-tc_rs RANDOM_SELECTION]
                           [-tc_a5 ALTERNATIVE_FIVE_PRIME]
                           [-tc_a3 ALTERNATIVE_THREE_PRIME]
                           [-tc_es EXON_SKIPPING] [-tc_me MUTUALLY_EXCLUSIVE]
@@ -140,6 +141,8 @@ The other arguments are optional, and we describe them below:
 `[-c_i C_I]` relative frequence of codon insertions (default=0.7)
 
 `[-c_d C_D]` relative frequence of codon deletions (default=0.3)
+
+`[-tc_rs RANDOM_SELECTION]` relative frequence of random selection (default =1.0)
 
 `[-tc_a5 ALTERNATIVE_FIVE_PRIME]` relative frequence of alternative five prime in tc (default =0.25)
 
@@ -244,23 +247,34 @@ SimSpliceEvol creates nine(9) folders.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2 id="gui-description"> :computer: Starting with SimSpliceEvolGUI </h2>
+<h2 id="gui-description"> :computer: Starting with the Standalone Software / GUI </h2>
 
 <!-- Main Command -->
-> Main Command 
+> Main Command (GUI)
 
-- Open a terminal in Ubuntu and enter the following command. Users will be able to see the error logs in the terminal if they occur.
+- Open a terminal in Ubuntu/Windows and enter the following command. Users will be able to see the error logs in the terminal if they occur.
 
-<pre><code> ./simspliceevol2GUI </code></pre>
+<pre><code> ./simspliceevol2 </code></pre>
 
 - Or double-click on the icon to open the application. Perhaps you should first right-click and set the software to execute as an application (right-click > Properties > Permissions > Authorize the execution of the file as an application).
+
+> Main Command (Standalone Software)
+
+- Open a terminal in Ubuntu/Windows and enter the following command to see the command-line help. 
+
+<pre><code> ./simspliceevol2 -app no -h </code></pre>
+
+- You can now run the software as the original Python script without installing prerequisites. For quick execution, use the provided tree file (small.nw) with this generic command. Of course, you can customize the command with the parameters described earlier.
+
+<pre><code> ./simspliceevol2 -app no -i ./small.nw </code></pre>
+
 
 > Interface
 <p align='center' style="background-color:gray;padding:20px;">
     <img src="./public/gui_image.png" alt="Image 2" >
 </p>
 
-> execution -> windows
+> Execution
 
 >> Outputs
 <p align='center' style="background-color:gray;padding:20px;">

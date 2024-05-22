@@ -6,6 +6,7 @@
                           [-eic_ed EIC_ED] [-eic_eg EIC_EG] [-c_i C_I]
                           [-c_d C_D] [-k_nb_exons K_NB_EXONS] [-k_eic K_EIC]
                           [-k_indel K_INDEL] [-k_tc K_TC]
+                          [-tc_rs RANDOM_SELECTION]
                           [-tc_a5 ALTERNATIVE_FIVE_PRIME]
                           [-tc_a3 ALTERNATIVE_THREE_PRIME]
                           [-tc_es EXON_SKIPPING] [-tc_me MUTUALLY_EXCLUSIVE]
